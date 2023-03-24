@@ -45,6 +45,42 @@
   "rules": {
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "no-var": "error",
+    "no-unused-vars": "error",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "no-use-before-define": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+    "@typescript-eslint/explicit-module-boundary-types": [
+      "error",
+      {
+        "allowArgumentsExplicitlyTypedAsAny": false,
+        "allowDirectConstAssertionInArrowFunctions": true,
+        "allowedNames": [],
+        "allowHigherOrderFunctions": true,
+        "allowTypedFunctionExpressions": true
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "types": {
+          "Object": {
+            "message": "Use {} instead of Object type"
+          },
+          "any": {
+            "message": "Any type is forbidden"
+          },
+          "unknown": {
+            "message": "Unknown type is forbidden"
+          },
+          "object": {
+            "message": "Object type is forbidden - use type {} instead"
+          }
+        }
+      }
+    ]
   }
 }
