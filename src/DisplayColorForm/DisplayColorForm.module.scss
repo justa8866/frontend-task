@@ -9,6 +9,9 @@
 .form {
   justify-content: center;
   text-align: center;
+  @media (max-width: 768px) {
+    display: grid;
+  }
 }
 
 .input {
