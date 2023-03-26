@@ -41,7 +41,7 @@ const DisplayColorForm: FC = () => {
   window.addEventListener('storage', () => getColorsFromLocalStorage());
 
   return (
-    <div>
+    <>
       <div className={styles.boxesColorContainer}>
         {colors.map((color, index) => (
           <ColorBox key={index} index={index} color={color} showHidden={true} />
@@ -119,7 +119,7 @@ const DisplayColorForm: FC = () => {
         filterBlueValue={filterBlueValue}
         filterSaturationValue={filterSaturationValue}
       />
-    </div>
+    </>
   );
 };
 
