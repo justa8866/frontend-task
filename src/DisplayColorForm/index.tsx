@@ -18,6 +18,22 @@ const DisplayColorForm: FC = () => {
     setColors(colors);
   };
 
+  const checkIfColorValueNumberIsCorrect = (colorNumber: number): number => {
+    if (colorNumber >= 0 && colorNumber <= 255) {
+      return colorNumber;
+    }
+
+    return 0;
+  };
+
+  const checkIfSaturationValueNumberIsCorrect = (saturationNumber: number): number => {
+    if (saturationNumber >= 0 && saturationNumber <= 100) {
+      return saturationNumber;
+    }
+
+    return 0;
+  };
+
   useEffect(() => {
     getColorsFromLocalStorage();
   }, []);
@@ -40,9 +56,13 @@ const DisplayColorForm: FC = () => {
           name='red'
           id='red'
           placeholder='0-255'
+          min={0}
+          max={255}
           required
           value={filterRedValue}
-          onChange={event => setFilterRedValue(parseInt(event.target.value))}
+          onChange={event =>
+            setFilterRedValue(checkIfColorValueNumberIsCorrect(parseInt(event.target.value)))
+          }
         />
         <label htmlFor='green'>Green: </label>
         <input
@@ -51,9 +71,13 @@ const DisplayColorForm: FC = () => {
           name='green'
           id='green'
           placeholder='0-255'
+          min={0}
+          max={255}
           required
           value={filterGreenValue}
-          onChange={event => setFilterGreenValue(parseInt(event.target.value))}
+          onChange={event =>
+            setFilterGreenValue(checkIfColorValueNumberIsCorrect(parseInt(event.target.value)))
+          }
         />
         <label htmlFor='blue'>Blue: </label>
         <input
@@ -62,9 +86,13 @@ const DisplayColorForm: FC = () => {
           name='blue'
           id='blue'
           placeholder='0-255'
+          min={0}
+          max={255}
           required
           value={filterBlueValue}
-          onChange={event => setFilterBlueValue(parseInt(event.target.value))}
+          onChange={event =>
+            setFilterBlueValue(checkIfColorValueNumberIsCorrect(parseInt(event.target.value)))
+          }
         />
         <label htmlFor='saturation'>Saturation: </label>
         <input
@@ -72,10 +100,16 @@ const DisplayColorForm: FC = () => {
           className={styles.input}
           name='saturation'
           id='saturation'
-          placeholder='0-255'
+          placeholder='0-100'
+          min={0}
+          max={100}
           required
           value={filterSaturationValue}
-          onChange={event => setFilterSaturationValue(parseInt(event.target.value))}
+          onChange={event =>
+            setFilterSaturationValue(
+              checkIfSaturationValueNumberIsCorrect(parseInt(event.target.value)),
+            )
+          }
         />
       </form>
 
